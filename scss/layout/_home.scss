@@ -1,54 +1,123 @@
 /* Home Section ----------------------- */
 .video-container {
-    position: relative;
-    z-index: -1;
-    height: 100vh;
-    display: grid;
-    place-items: center;
+  position: relative;
+  z-index: -1;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 
-    video {
-        @extend %full-screen-fixed;
-        object-fit: cover;
-    }
+  video {
+    @extend %full-screen-fixed;
+    object-fit: cover;
+  }
 }
 
 .overlay {
-    @extend %full-screen-fixed;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: grid;
-    place-items: center;
+  @extend %full-screen-fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2rem);
 
-    h1 {
-        position: relative;
-        color: $primary-font-color;
-        font-size: clamp(3.5rem, 5vw, 6rem);
-        font-weight: 800;
-        z-index: 10;
-        animation: colorChange 1.5s ease-in-out infinite alternate;
+  .content-wrapper {
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+  }
 
-        @keyframes colorChange {
-            from {
-                color: darken($primary-font-color, 20%);
-            }
-            to {
-                color: white;
-            }
-        }
+  .logo {
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
 
-        @include tablet-vertical {
-            font-size: 4rem;
-        }
-
-        @include smartphone-vertical {
-            font-size: 3.5rem;
-        }
+    img {
+      height: clamp(80px, 15vw, 120px);
+      width: auto;
+      max-width: 100%;
+      opacity: 0.8;
     }
+  }
 
-    p {
+  h1 {
+    position: relative;
+    color: $primary-font-color;
+    font-weight: 800;
+    z-index: 10;
+    margin: 0 0 clamp(1rem, 3vw, 1.5rem) 0;
+    line-height: 1.1;
+    animation: colorChange 1.5s ease-in-out infinite alternate;
+
+    // Improved responsive typography with smoother scaling
+    font-size: clamp(2.2rem, 5.5vw, 6rem);
+
+    // Better word wrapping and spacing
+    word-wrap: break-word;
+    hyphens: auto;
+
+    @keyframes colorChange {
+      from {
+        color: darken($primary-font-color, 20%);
+      }
+      to {
         color: white;
-        position: relative;
-        text-align: center;
-        font-size: clamp(1rem, 5vw, 1.5rem);
-        font-weight: 200;
+      }
     }
-} 
+
+    // Enhanced mobile breakpoints
+    @include smartphone-vertical {
+      font-size: clamp(1.8rem, 7vw, 2.8rem);
+      line-height: 1.2;
+      margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
+    }
+
+    @include tablet-vertical {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1.15;
+    }
+
+    // Large screens optimization
+    @media (min-width: 1400px) {
+      font-size: 5.5rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  p {
+    color: white;
+    position: relative;
+    text-align: center;
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.5;
+    opacity: 0.95;
+
+    // Improved responsive font sizing
+    font-size: clamp(1rem, 3vw, 1.4rem);
+
+    // Better readability constraints
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include smartphone-vertical {
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+      line-height: 1.6;
+      padding: 0 0.5rem;
+      max-width: 300px;
+    }
+
+    @include tablet-vertical {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      line-height: 1.55;
+      max-width: 500px;
+    }
+
+    // Large screens optimization
+    @media (min-width: 1400px) {
+      font-size: 1.3rem;
+      max-width: 600px;
+    }
+  }
+}
