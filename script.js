@@ -1,78 +1,66 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const isMobile = window.innerWidth <= 1025;
-
+document.addEventListener("DOMContentLoaded", () => {
   // Function to create and observe IntersectionObservers
   function createObserver(selector, observerOptions, toggleClass) {
-    const items = document.querySelectorAll(selector);
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(toggleClass);
-        } else {
-          entry.target.classList.remove(toggleClass);
-        }
-      });
-    }, observerOptions);
+    const items = document.querySelectorAll(selector)
+    if (items.length === 0) return
 
-    items.forEach(item => {
-      observer.observe(item);
-    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(toggleClass)
+        }
+      })
+    }, observerOptions)
+
+    items.forEach((item) => {
+      observer.observe(item)
+    })
   }
 
   // Create observers for different sections
-  createObserver('#about .phrase', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
-  createObserver('#gallery .image-box', { root: null, threshold: isMobile ? 0.5 : 1 }, 'active');
-  createObserver('#blog .featured-article, #blog .article', { root: null, threshold: isMobile ? 0.01 : 0.3 }, 'fadeInUp');
-  createObserver('#contact > div', { root: null, threshold: isMobile ? 0.01 : 0.7 }, 'fadeInUp');
-});
+  createObserver(
+    ".events-content, .events-calendar, .social-card, .initiative-card, .join-option, .resource-link",
+    { root: null, threshold: 0.1 },
+    "fadeInUp",
+  )
+})
 
 // Navigation ----------------------------------------
-const nav = document.getElementById('nav');
-const menuIcon = document.querySelector('.menu-icon');
-const listItems = document.querySelectorAll('nav ul li a');
+const nav = document.getElementById("nav")
+const menuIcon = document.querySelector(".menu-icon")
+const listItems = document.querySelectorAll("nav ul li a")
 
 function toggleMenu() {
-  nav.classList.toggle('active');
-  menuIcon.classList.toggle('active');
+  nav.classList.toggle("active")
+  menuIcon.classList.toggle("active")
   listItems.forEach((listItem) => {
-    listItem.classList.toggle('active');
-  });
+    listItem.classList.toggle("active")
+  })
 }
 
 function hideMenu() {
-  nav.classList.remove('active');
-  menuIcon.classList.remove('active');
+  nav.classList.remove("active")
+  menuIcon.classList.remove("active")
   listItems.forEach((listItem) => {
-    listItem.classList.remove('active');
-  });
+    listItem.classList.remove("active")
+  })
 }
 
-// Form Submission ---------------------------------
-document.getElementById('myForm').addEventListener('submit', function(event) {
-  event.preventDefault();
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault()
 
-  const form = this;
-  const formData = new FormData(form);
+    const targetId = this.getAttribute("href")
+    if (targetId === "#") return
 
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
+    const targetElement = document.querySelector(targetId)
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, // Adjust for header height
+        behavior: "smooth",
+      })
     }
   })
-  .then(response => {
-      if (response.ok) {
-        form.reset();
-        const toast = document.getElementById("toast");
-        toast.classList.add("show");
-        setTimeout(function(){ toast.classList.remove("show"); }, 10000);        
-      } else {
-        // Handle errors here
-        alert('Form submission failed!');
-    }
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
-});
+})
+

@@ -1,20 +1,30 @@
 /* Social Feed Section */
 #social-feed {
   @extend %section;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/assets/field.jpg?height=800&width=1600&query=Social media and digital communication in Vietnam")
+      no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+
+  @include smartphone-vertical {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
 
   .section-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 20px;
-
-    @include smartphone-vertical {
-      padding: 60px 20px;
-    }
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
   }
 
   h2 {
     font-size: 2.5rem;
-    color: $secondary-font-color;
+    color: white;
     margin-bottom: 40px;
     text-align: center;
 
@@ -35,14 +45,15 @@
   }
 
   .social-card {
-    background: $background-alt;
+    background: rgba($background-alt, 0.8);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
     h3 {

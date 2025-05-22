@@ -1,21 +1,30 @@
 /* Resources Section */
 #resources {
   @extend %section;
-  background: $background-darker;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/assets/hoian.jpg?height=800&width=1600&query=Digital resources and technology in Vietnam")
+      no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+
+  @include smartphone-vertical {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
 
   .section-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 20px;
-
-    @include smartphone-vertical {
-      padding: 60px 20px;
-    }
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
   }
 
   h2 {
     font-size: 2.5rem;
-    color: $secondary-font-color;
+    color: white;
     margin-bottom: 40px;
     text-align: center;
 
@@ -41,14 +50,15 @@
     display: flex;
     align-items: center;
     padding: 15px;
-    background: $background-alt;
+    background: rgba($background-alt, 0.8);
+    backdrop-filter: blur(10px);
     border-radius: 8px;
     text-decoration: none;
     transition: transform 0.3s ease, background-color 0.3s ease;
 
     &:hover {
       transform: translateY(-3px);
-      background: lighten($background-alt, 5%);
+      background: rgba(lighten($background-alt, 5%), 0.8);
     }
 
     .resource-icon {

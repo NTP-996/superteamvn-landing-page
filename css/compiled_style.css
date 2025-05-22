@@ -389,20 +389,129 @@ body {
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
+/* Events Section */
+#events {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/dn.jpg?height=800&width=1600&query=Aerial view of Vietnam city skyline") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: rgb(150, 150, 150);
+  padding: 80px 0;
+}
+@media (max-width: 600px) {
+  #events {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
+}
+#events .events-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+@media (orientation: portrait) and (max-width: 1025px) {
+  #events .events-container {
+    grid-template-columns: 1fr;
+  }
+}
+#events .events-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#events .events-content h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+@media (max-width: 600px) {
+  #events .events-content h2 {
+    font-size: 2rem;
+  }
+}
+#events .events-content p {
+  color: rgb(200, 200, 200);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  max-width: 500px;
+}
+@media (max-width: 600px) {
+  #events .events-content p {
+    font-size: 1rem;
+  }
+}
+#events .events-content .events-description {
+  margin-bottom: 30px;
+}
+#events .events-content .events-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #9945ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+#events .events-content .events-button svg {
+  transition: transform 0.3s ease;
+}
+#events .events-content .events-button:hover {
+  background-color: rgb(125.0322580645, 18, 255);
+  transform: translateY(-2px);
+}
+#events .events-content .events-button:hover svg {
+  transform: translateX(3px);
+}
+#events .events-calendar {
+  background: rgba(31, 31, 31, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+}
+#events .events-calendar .luma-calendar {
+  height: 100%;
+  min-height: 400px;
+}
+#events .events-calendar .luma-calendar iframe {
+  height: 100%;
+  min-height: 400px;
+}
+
 /* Social Feed Section */
+#social-feed {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/field.jpg?height=800&width=1600&query=Social media and digital communication in Vietnam") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+@media (max-width: 600px) {
+  #social-feed {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
+}
 #social-feed .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px;
-}
-@media (max-width: 600px) {
-  #social-feed .section-container {
-    padding: 60px 20px;
-  }
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 #social-feed h2 {
   font-size: 2.5rem;
-  color: rgb(200, 200, 200);
+  color: white;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -423,14 +532,15 @@ body {
   }
 }
 #social-feed .social-card {
-  background: rgb(31, 31, 31);
+  background: rgba(31, 31, 31, 0.8);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 #social-feed .social-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 #social-feed .social-card h3 {
   color: rgb(200, 200, 200);
@@ -457,21 +567,28 @@ body {
 
 /* Initiatives Section */
 #initiatives {
-  background: rgb(22, 22, 22);
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/hn.jpg?height=800&width=1600&query=Tech innovation and startup scene in Vietnam") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+@media (max-width: 600px) {
+  #initiatives {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
 }
 #initiatives .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px;
-}
-@media (max-width: 600px) {
-  #initiatives .section-container {
-    padding: 60px 20px;
-  }
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 #initiatives h2 {
   font-size: 2.5rem;
-  color: rgb(200, 200, 200);
+  color: white;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -492,14 +609,15 @@ body {
   }
 }
 #initiatives .initiative-card {
-  background: rgb(31, 31, 31);
+  background: rgba(31, 31, 31, 0.8);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 #initiatives .initiative-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 #initiatives .initiative-card .initiative-image img {
   width: 100%;
@@ -528,19 +646,29 @@ body {
 }
 
 /* Join Section */
+#join {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/dragon-bridge.jpg?height=800&width=1600&query=Community collaboration and teamwork in Vietnam") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+@media (max-width: 600px) {
+  #join {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
+}
 #join .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px;
-}
-@media (max-width: 600px) {
-  #join .section-container {
-    padding: 60px 20px;
-  }
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 #join h2 {
   font-size: 2.5rem;
-  color: rgb(200, 200, 200);
+  color: white;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -552,7 +680,7 @@ body {
 }
 #join .join-description {
   text-align: center;
-  color: rgb(150, 150, 150);
+  color: rgb(200, 200, 200);
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto 40px;
@@ -574,7 +702,8 @@ body {
   }
 }
 #join .join-option {
-  background: rgb(31, 31, 31);
+  background: rgba(31, 31, 31, 0.8);
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 30px;
   text-align: center;
@@ -597,7 +726,7 @@ body {
   padding: 12px;
   border-radius: 5px;
   border: none;
-  background: rgb(50, 50, 50);
+  background: rgba(50, 50, 50, 0.8);
   color: white;
 }
 #join .newsletter-form button {
@@ -661,21 +790,28 @@ body {
 
 /* Resources Section */
 #resources {
-  background: rgb(22, 22, 22);
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/hoian.jpg?height=800&width=1600&query=Digital resources and technology in Vietnam") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 80px 0;
+}
+@media (max-width: 600px) {
+  #resources {
+    padding: 60px 0;
+    background-attachment: scroll;
+  }
 }
 #resources .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px;
-}
-@media (max-width: 600px) {
-  #resources .section-container {
-    padding: 60px 20px;
-  }
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 #resources h2 {
   font-size: 2.5rem;
-  color: rgb(200, 200, 200);
+  color: white;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -701,14 +837,15 @@ body {
   display: flex;
   align-items: center;
   padding: 15px;
-  background: rgb(31, 31, 31);
+  background: rgba(31, 31, 31, 0.8);
+  backdrop-filter: blur(10px);
   border-radius: 8px;
   text-decoration: none;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 #resources .resource-link:hover {
   transform: translateY(-3px);
-  background: rgb(43.75, 43.75, 43.75);
+  background: rgba(43.75, 43.75, 43.75, 0.8);
 }
 #resources .resource-link .resource-icon {
   font-size: 1.5rem;

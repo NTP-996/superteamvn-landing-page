@@ -40,6 +40,12 @@
   font-size: inherit;
 }
 
+%glass-effect {
+  background: rgba($background-alt, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
 // Mixins for common styles
 @mixin flex-center($direction: row) {
   display: flex;
@@ -68,6 +74,18 @@
   margin-bottom: 10px;
   opacity: 1;
   transform: scale(1);
+}
+
+@mixin section-background($image-query) {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/placeholder.svg?height=800&width=1600&query=#{$image-query}")
+      no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include smartphone-vertical {
+    background-attachment: scroll;
+  }
 }
 
 // Media Queries
